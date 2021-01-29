@@ -34,18 +34,7 @@ topology_template:
       type: string
       default: ubuntu
       description: Operating System distro - valid values ubuntu, centos 
- 
-    zabbix_server:
-      type: string
-      description: IP or DNS name of the Zabbix server
-      required: no
-      default: ""
 
-    zabbix_metadata:
-      type: string
-      description: Host metadata to be sent to the Zabbix server
-      required: no
-      default: ""
 
   node_templates:
 
