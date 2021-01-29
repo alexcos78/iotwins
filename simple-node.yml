@@ -40,9 +40,6 @@ topology_template:
 
     simple_node:
       type: tosca.nodes.indigo.Compute
-      properties:
-        zabbix_server: { get_input: zabbix_server }
-        zabbix_server_metadata: { get_input: zabbix_metadata } 
       capabilities:
         endpoint:
           properties:
