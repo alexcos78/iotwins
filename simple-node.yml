@@ -31,9 +31,17 @@ topology_template:
       default: 1      
 
     os_distribution: 
-      type: string
-      default: ubuntu
-      description: Operating System distro - valid values ubuntu, centos 
+#      type: string
+#      default: ubuntu
+#      description: Operating System distro - valid values ubuntu, centos     os_version:
+      type: version
+      default: 16.04
+      description: Operating System distribution version
+      constraints:
+         - valid_values: [ 16.04, 18.04, 7 ]
+
+      
+      
 
 
   node_templates:
