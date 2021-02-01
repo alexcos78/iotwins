@@ -78,7 +78,6 @@ topology_template:
         docker_tag: { get_input: docker_tag }
         docker_ports: { get_input: docker_ports }
         docker_command: { get_input: docker_command }
-        environment_variables: { get_input: environment_variables }
       requirements:
         - host: simple_node 
  
