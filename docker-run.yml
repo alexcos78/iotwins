@@ -53,7 +53,6 @@ topology_template:
         type: map
         entry_schema:
           type: string
-      description: Environment variables
       
   node_templates:
 
