@@ -8,7 +8,6 @@ description: Run a docker container
 metadata:
   display_name: Run docker
   icon: https://paas.cloud.infn.it/public/images/docker.png
-  allowed_groups: "developers,orchestrator-admin"
 
 topology_template:
 
@@ -24,11 +23,11 @@ topology_template:
       
     docker_appname:
       type: string
-      default: "nginx"
+      default: "mysql1"
 
     docker_image:
       type: string
-      default: "nginx"
+      default: "mysql/mysql-server"
 
     docker_tag:
       type: string 
@@ -36,7 +35,7 @@ topology_template:
 
     docker_ports:
       type: string
-      default: "8080:80"
+      default: "3306:3306"
 
     docker_command:
       type: string
@@ -44,7 +43,7 @@ topology_template:
 
     service_ports:
       type: integer
-      default: "8080"
+      default: "3302"
 
     environment_variables:
       required: no
