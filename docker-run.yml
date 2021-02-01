@@ -44,15 +44,6 @@ topology_template:
     service_ports:
       type: integer
       default: "8080"
-
-    environment_variables:
-      required: no
-      default: []
-      type: list
-      entry_schema:
-        type: map
-        entry_schema:
-          type: string
       
   node_templates:
 
