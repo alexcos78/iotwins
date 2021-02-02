@@ -8,7 +8,7 @@ description: Deploy a single master Kubernetes 1.17.0 cluster
 metadata:
   display_name: Kubernetes cluster
   icon: https://paas.cloud.infn.it/public/images/kubernetes.png
-  allowed_groups: "beta-testers,developers,orchestrator-admin"
+  #allowed_groups: "beta-testers,developers,orchestrator-admin"
   template_type: "kubernetes"
 
 topology_template:
