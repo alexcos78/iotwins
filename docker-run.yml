@@ -33,17 +33,17 @@ topology_template:
       type: string 
       default: "latest"
 
-    docker_ports:
-      type: string
-      default: "8080:80"
+#    docker_ports:
+#      type: string
+#      default: "8080:80"
 
     docker_command:
       type: string
       default: ""
 
-    service_ports:
-      type: integer
-      default: "8080"
+#    service_ports:
+#      type: integer
+#      default: "8080"
       
   node_templates:
 
@@ -56,7 +56,8 @@ topology_template:
             ports:
               user_port:
                 protocol: tcp
-                source: { get_input: service_ports }
+                #source: { get_input: service_ports }
+                source: 8080
         scalable:
           properties:
             count: 1
@@ -76,7 +77,8 @@ topology_template:
         docker_appname: { get_input: docker_appname }
         docker_image: { get_input: docker_image }
         docker_tag: { get_input: docker_tag }
-        docker_ports: { get_input: docker_ports }
+        #docker_ports: { get_input: docker_ports }
+        docker_ports: "8080:80"
         docker_command: { get_input: docker_command }
       requirements:
         - host: simple_node 
