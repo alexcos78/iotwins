@@ -8,6 +8,7 @@ description: Deploy a single master Kubernetes 1.17.0 cluster
 metadata:
   display_name: Kubernetes cluster
   icon: https://paas.cloud.infn.it/public/images/kubernetes.png
+  allowed_groups: "beta-testers,developers,orchestrator-admin"
   template_type: "kubernetes"
 
 topology_template:
@@ -202,6 +203,7 @@ topology_template:
       capabilities:
         endpoint:
           properties:
+            #network_name: infn-farm.PUBLIC
             network_name: PUBLIC
             ports: { get_input: ports }
         scalable:
@@ -209,28 +211,35 @@ topology_template:
             count: { get_input: number_of_masters }
         host:
           properties:
+            #instance_type:  m1.medium
             num_cpus: { get_input: num_cpus_master }
             mem_size: { get_input: mem_size_master }
         os:
           properties:
             distribution: ubuntu
             version: 16.04
+            #image: "ost://keystone.cloud.infn.it/9e6c6447-e51b-4c49-a136-df3473b8090e"
 
     k8s_node_server:
       type: tosca.nodes.indigo.Compute
       capabilities:
         endpoint:
           properties:
+            #network_name: test-net.PRIVATE
             network_name: PRIVATE
+            #network_name: PUBLIC
         scalable:
           properties:
             count: { get_input: number_of_nodes }
         host:
           properties:
+            #instance_type:  m1.large
             num_cpus: { get_input: num_cpus_node }
             mem_size: { get_input: mem_size_node }
         os:
           properties:
+            #image: "ost://openstack.fisica.unipg.it/1c334195-3203-43cb-b13f-d3159304a6d6"
+            #image: "ost://keystone.cloud.infn.it/9e6c6447-e51b-4c49-a136-df3473b8090e"
             distribution: ubuntu
             version: 16.04
 
