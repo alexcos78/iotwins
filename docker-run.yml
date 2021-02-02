@@ -41,9 +41,9 @@ topology_template:
       type: string
       default: ""
 
-#    service_ports:
-#      type: integer
-#      default: "8080"
+    service_ports:
+      type: integer
+      default: "8080"
       
   node_templates:
 
