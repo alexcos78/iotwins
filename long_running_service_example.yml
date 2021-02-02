@@ -7,7 +7,7 @@ description: >
  TOSCA example template for long running service
 metadata:
  display_name: Long-running service
- #allowed_groups: "developers"
+ allowed_groups: "developers"
 
 topology_template:
 
