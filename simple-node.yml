@@ -96,7 +96,7 @@ topology_template:
         endpoint:
           properties:
 #            ports: { get_input: service_ports }
-            network: PUBLIC
+            network_name: PUBLIC
         scalable:
           properties:
             count: { get_input: num_instances }
