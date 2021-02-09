@@ -51,15 +51,51 @@ topology_template:
       description: Operating System distribution version
       constraints:
       - valid_values: [ "16.04", "7" ]
+      
+    service_ports:
+      type: map
+      required: false
+      constraints:
+        - min_length: 0
+      entry_schema:
+        type: tosca.datatypes.network.PortSpec
+      description: Ports to open on the host
+
 
   node_templates:
+
+    pub_network:
+      type: tosca.nodes.network.Network
+      properties:
+        network_type: public
+
+    server_pub_port:
+      type: tosca.nodes.network.Port
+      properties:
+        order: 1
+      requirements:
+        - binding: simple_node
+        - link: pub_network
+
+    priv_network:
+      type: tosca.nodes.network.Network
+      properties:
+        network_type: private
+
+    server_priv_port:
+      type: tosca.nodes.network.Port
+      properties:
+        order: 0
+      requirements:
+        - binding: simple_node
+        - link: priv_network
 
     simple_node:
       type: tosca.nodes.indigo.Compute
       capabilities:
         endpoint:
           properties:
-            network_name: PUBLIC
+            ports: { get_input: service_ports }
         scalable:
           properties:
             count: { get_input: num_instances }
